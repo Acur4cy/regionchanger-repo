@@ -16,7 +16,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 APP = "org.webosbrew.regionchanger"
-VER = "1.0.1"
+VER = "1.0.2"
 IPK = os.path.join(ROOT, f"{APP}_{VER}_all.ipk")
 RELEASE = os.path.join(ROOT, "release")
 
@@ -28,7 +28,7 @@ DESC = (
 
 )
 SHORT = "Cambia la region del TV (contiArea2All) via lowlevelstorage NVRAM."
-SOURCE_URL = os.environ.get("SOURCE_URL", "https://github.com/webosbrew")
+SOURCE_URL = os.environ.get("SOURCE_URL", "https://github.com/Acur4cy/regionchanger-repo")
 
 
 def main():

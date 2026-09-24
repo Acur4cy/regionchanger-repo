@@ -16,7 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 PKG = os.path.join(ROOT, "pkg")
 APP = "org.webosbrew.regionchanger"
-VER = "1.0.1"
+VER = "1.0.2"
 OUT = os.path.join(ROOT, f"{APP}_{VER}_all.ipk")
 
 WANTED_UID = 1001   # ares-package runs tar as the "ares" dev user (1001)

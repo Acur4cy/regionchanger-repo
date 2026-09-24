@@ -1,6 +1,6 @@
 {
     "id": "org.webosbrew.regionchanger",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "vendor": "RootMyTV",
     "title": "Region Changer",
     "appDescription": "Cambia la region / area option (contiArea2All) del TV via lowlevelstorage NVRAM",
