@@ -9,7 +9,7 @@
   "rootRequired": false,
   "ipkUrl": "org.webosbrew.regionchanger_1.0.0_all.ipk",
   "ipkHash": {
-    "sha256": "07516f816c0edbc1bf6dd78dcb65a12db132e7c961c47ed3d2b11f881e503304"
+    "sha256": "aded93711fef245a50b8613f5e43052103992f674892f8d9059329ef5db2777a"
   },
-  "ipkSize": 7216
+  "ipkSize": 7108
 }
