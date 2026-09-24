@@ -12,18 +12,18 @@
       "iconUri": "icons/icon.png",
       "manifest": {
         "id": "org.webosbrew.regionchanger",
-        "version": "1.0.2",
+        "version": "1.0.4",
         "type": "web",
         "title": "Region Changer",
         "appDescription": "Cambia la region / area option (contiArea2All) del TV escribiendo en NVRAM via com.webos.service.lowlevelstorage (sin necesidad de root). Presets: US, Europa, China, Brasil, Japon, Canada, Mexico, Argentina, o un codigo custom. Requiere un LG webOS TV rooteado.",
         "iconUri": "icons/icon.png",
         "sourceUrl": "https://github.com/Acur4cy/regionchanger-repo",
         "rootRequired": false,
-        "ipkUrl": "org.webosbrew.regionchanger_1.0.2_all.ipk",
+        "ipkUrl": "org.webosbrew.regionchanger_1.0.4_all.ipk",
         "ipkHash": {
-          "sha256": "b2e3fbacd6ecf49956eb494e4dc5d43ddf82dc0cb1000fd8ee6acda33f93f20e"
+          "sha256": "10d6caa3b1ab5da97730fce558d43850181d19b7afe94381051e53eed1716e74"
         },
-        "ipkSize": 7112
+        "ipkSize": 10222
       },
       "shortDescription": "Cambia la region del TV (contiArea2All) via lowlevelstorage NVRAM.",
       "requirements": [],

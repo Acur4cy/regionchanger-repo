@@ -16,7 +16,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, ".."))
 APP = "org.webosbrew.regionchanger"
-VER = "1.0.2"
+VER = "1.0.4"
 IPK = os.path.join(ROOT, f"{APP}_{VER}_all.ipk")
 RELEASE = os.path.join(ROOT, "release")
 
