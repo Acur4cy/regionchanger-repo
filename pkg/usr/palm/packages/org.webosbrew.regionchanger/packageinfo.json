@@ -1,0 +1,8 @@
+{
+    "id": "org.webosbrew.regionchanger",
+    "version": "1.0.1",
+    "app": "org.webosbrew.regionchanger",
+    "services": [
+        "org.webosbrew.regionchanger.service"
+    ]
+}

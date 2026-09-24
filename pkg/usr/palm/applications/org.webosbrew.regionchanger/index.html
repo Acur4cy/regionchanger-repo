@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Region Changer</title>
+<style>
+  body { background:#111; color:#eee; font-family:sans-serif; padding:2em; }
+  h1 { font-size:1.6em; margin-bottom:0.2em; }
+  .sub { color:#888; margin-bottom:1.5em; }
+  button { display:block; width:100%; padding:1.2em; font-size:1.4em;
+           margin:0.5em 0; background:#222; color:#4c4; border:2px solid #444;
+           cursor:pointer; }
+  button:hover { background:#333; }
+  input { width:100%; padding:1em; font-size:1.4em; margin:0.5em 0;
+          background:#000; color:#eee; border:2px solid #444; }
+  pre { background:#000; padding:1em; font-size:1.1em; white-space:pre-wrap;
+        min-height:6em; border:1px solid #222; }
+  .row { display:flex; gap:0.5em; }
+  .row button { flex:1; }
+</style>
+</head>
+<body>
+<h1>Region Changer</h1>
+<div class="sub">Escoge un presete o escribe un codigo. Despues reinicia el TV.</div>
+
+<input id="custom" placeholder="Codigo personalizado (ej. 22282)">
+
+<button onclick="doCustom()">Usar codigo</button>
+<button onclick="doRead()">Leer region actual</button>
+
+<div class="row">
+  <button onclick="doChange(22282)">US</button>
+  <button onclick="doChange(19461)">EU</button>
+  <button onclick="doChange(3122)">EU(EU)</button>
+</div>
+<div class="row">
+  <button onclick="doChange(13741)">China</button>
+  <button onclick="doChange(18789)">Brazil</button>
+  <button onclick="doChange(19345)">Japon</button>
+</div>
+<div class="row">
+  <button onclick="doChange(18362)">Canada</button>
+  <button onclick="doChange(18456)">Mexico</button>
+  <button onclick="doChange(19123)">Argentina</button>
+</div>
+
+<button onclick="doVerify()">Verificar</button>
+<button id="rebootBtn" onclick="doReboot()">Reiniciar TV</button>
+
+<pre id="out"></pre>
+
+<script>
+var svc = 'luna://org.webosbrew.regionchanger.service';
+
+function log(t) {
+  var out = document.getElementById('out');
+  out.textContent += t + '\n---\n';
+}
+
+function call(method, params) {
+  return webOS.service.request(svc, {
+    method: method,
+    parameters: params || {},
+    onSuccess: function (r) { log('OK [' + method + ']: ' + JSON.stringify(r)); },
+    onFailure: function (r) { log('ERROR [' + method + ']: ' + JSON.stringify(r)); }
+  });
+}
+
+function doRead() { log('Leyendo...'); call('read', {}); }
+function doVerify() { log('Verificando...'); call('verify', {}); }
+
+function doChange(area) {
+  log('Cambiando a area ' + area + ' ...');
+  call('change', { area: area });
+}
+
+function doCustom() {
+  var v = document.getElementById('custom').value.trim();
+  if (!/^\d+$/.test(v)) { log('Codigo invalido: ' + v); return; }
+  doChange(parseInt(v, 10));
+}
+
+function doReboot() {
+  var btn = document.getElementById('rebootBtn');
+  if (btn.dataset.confirm !== '1') {
+    btn.dataset.confirm = '1';
+    btn.textContent = 'Confirmar reinicio? (pulsa de nuevo)';
+    return;
+  }
+  btn.dataset.confirm = '0';
+  btn.textContent = 'Reiniciar TV';
+  log('Reiniciando TV...');
+  call('reboot', {});
+}
+</script>
+</body>
+</html>
